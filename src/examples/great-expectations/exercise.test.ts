@@ -72,17 +72,18 @@ describe('Person', () => {
     expect(person.firstName).toEqual('Madonna');
   });
 
-  it.todo('will create a person with a first and last name', () => {
+  it('will create a person with a first and last name', () => {
     const person = new Person('Madonna Cicone');
     expect.hasAssertions();
     // Verify that person.lastName is correct.
-    expect(person.firstName).toEqual('Cicone');
+    expect(person.lastName).toEqual('Cicone');
   });
 
-  it.todo('will create a person with a first, middle, and last name', () => {
+  it('will create a person with a first, middle, and last name', () => {
     const person = new Person('Madonna Louise Cicone');
     expect.hasAssertions();
     // Verify that person.middleName is correct.
+    expect(person.middleName).toEqual('Louise');
   });
 
   it.todo('will throw if you provide an empty string', () => {
