@@ -17,17 +17,24 @@ it('has an input field for a new item', () => {
 
 it('has a "Add New Item" button that is disabled when the input is empty', () => {
   render(<PackingList />);
-
   const newItemInput = screen.getByLabelText('New Item Name');
   const newItemAddButton = screen.getByRole('button', {
     name: 'Add New Item',
   });
+  expect(newItemInput).toHaveValue('');
+  expect(newItemAddButton).toBeDisabled();
 });
 
-it.todo(
-  'enables the "Add New Item" button when there is text in the input field',
-  async () => {},
-);
+it('enables the "Add New Item" button when there is text in the input field', async () => {
+  const { user } = render(<PackingList />);
+  const newItemInput = screen.getByLabelText('New Item Name');
+  const newItemAddButton = screen.getByRole('button', {
+    name: 'Add New Item',
+  });
+
+  await user.type(newItemInput, 'macbook pro');
+  expect(newItemAddButton).toBeEnabled();
+});
 
 it.todo(
   'adds a new item to the unpacked item list when the clicking "Add New Item"',
