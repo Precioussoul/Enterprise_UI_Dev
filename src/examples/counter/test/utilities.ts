@@ -1,4 +1,10 @@
-import '@testing-library/jest-dom/extend-expect';
-/**
- * For a complete example, see: test/utilities.ts
- */
+import { render as renderComponent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import React from 'react';
+
+
+export const render = (ui: React.ReactElement, options: any) {
+    const user = userEvent.setup()
+    
+}
+
